@@ -1,0 +1,37 @@
+<div id="<%= dom_id alert %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Type:</strong>
+    <%= alert.type %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= alert.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tag:</strong>
+    <%= alert.tag %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= alert.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Origin:</strong>
+    <%= alert.origin %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Task:</strong>
+    <%= alert.task_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this alert", alert, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this alert', edit_alert_path(alert), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
