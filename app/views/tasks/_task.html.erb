@@ -14,6 +14,8 @@
     <%= task.user_id %>
   </p>
 
+  <%= render :partial => "alerts_task", :collection => task.alerts, as: :alert %>
+
   <% if action_name != "show" %>
     <%= link_to "Show this task", task, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this task', edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
