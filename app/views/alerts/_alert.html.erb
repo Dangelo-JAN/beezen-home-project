@@ -1,37 +1,39 @@
 <div id="<%= dom_id alert %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Type:</strong>
-    <%= alert.type %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= alert.name %>
-  </p>
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="border-t border-gray-200">
+      <dl>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Task owner</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= alert.task_id %></dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Alert</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= alert.name %></dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Type</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= alert.type %></dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Description</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= alert.description %></dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Origin</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= alert.origin %></dd>
+        </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Tag:</strong>
-    <%= alert.tag %>
-  </p>
+          <%= render :partial => "tags_alert", :collection => alert.tags, as: :tag %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= alert.description %>
-  </p>
+      </dl>
+    </div>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Origin:</strong>
-    <%= alert.origin %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Task:</strong>
-    <%= alert.task_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this alert", alert, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this alert', edit_alert_path(alert), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="mt-2 mb-10">
+    <% if action_name != "show" %>
+      <%= link_to "Show this alert", alert, class: "rounded-lg py-3 px-5 bg-orange-400 inline-block font-medium" %>
+      <%= link_to 'Edit this alert', edit_alert_path(alert), class: "rounded-lg py-3 ml-2 px-5 bg-orange-400 inline-block font-medium" %>
+    <% end %>
+  </div>
 </div>

@@ -1,12 +1,20 @@
-<div id="<%= dom_id tag %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= tag.name %>
-  </p>
+<div id="<%= dom_id tag %>" class="h-full">
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this tag", tag, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this tag', edit_tag_path(tag), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="border-t border-gray-200">
+      <dl>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Name</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"><%= tag.name %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="mt-2 mb-10">
+    <% if action_name != "show" %>
+      <%= link_to "Show this tag", tag, class: "rounded-lg py-3 px-5 bg-orange-400 inline-block font-medium" %>
+      <%= link_to 'Edit this tag', edit_tag_path(tag), class: "rounded-lg py-3 ml-2 px-5 bg-orange-400 inline-block font-medium" %>
+    <% end %>
+  </div>
 </div>
