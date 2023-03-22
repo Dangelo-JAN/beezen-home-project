@@ -6,9 +6,11 @@
   <div class="flex justify-between items-center">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-5xl font-semibold leading-6 text-gray-900">Alerts</h3>
-    <p class="mt-4 max-w-2xl text-lg ml-2 text-gray-500">Alerts details.</p>
-  </div>
-    <%= link_to 'New alert', new_alert_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      <p class="mt-4 max-w-2xl text-lg ml-2 text-gray-500">Alerts details.</p>
+    </div>
+    <% if current_user %>
+      <%= link_to 'New alert', new_alert_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <% end %>
   </div>
 
   <div id="alerts" class="min-w-full">
