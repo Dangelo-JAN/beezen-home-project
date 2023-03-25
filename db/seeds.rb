@@ -31,29 +31,28 @@ def create_users(users)
   puts 'Users created!'
 end
 
-def create_tasks(tasks)
-  puts 'Creating tasks...'
-  tasks.each_with_index do |t, i|
-    user = User.all.sample
-    Task.create(name: t[0], description: t[1], user_id: user.id)
-    task = Task.all
-    puts "Task #{task[i].name} was created"
-  end
-  
-  puts 'Tasks created!'
-end
-
-
 def create_alerts(alerts)
   puts 'Creating alerts...'
   alerts.each_with_index do |a, i|
-    task = Task.all.sample
-    Alert.create(type: a[0], name: a[1], tag: a[2], description: a[3], origin: a[4], task_id: task.id)
+    Alert.create(type: a[0], name: a[1], tag: a[2], description: a[3], origin: a[4])
     alert = Alert.all
     puts "Alert #{alert[i].name} was created"
   end
 
   puts 'Alerts created!'
+end
+
+def create_tasks(tasks)
+  puts 'Creating tasks...'
+  tasks.each_with_index do |t, i|
+    user = User.all.sample
+    alert = Alert.all.sample
+    Task.create(name: t[0], description: t[1], user_id: user.id, alert_id: alert.id)
+    task = Task.all
+    puts "Task #{task[i].name} was created"
+  end
+  
+  puts 'Tasks created!'
 end
 
 def create_tags(tags)
@@ -69,6 +68,6 @@ end
 
 create_roles(roles)
 create_users(users)
-create_tasks(tasks)
 create_alerts(alerts)
+create_tasks(tasks)
 create_tags(tags)

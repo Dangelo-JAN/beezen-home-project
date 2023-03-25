@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :alerts, dependent: :destroy
+  belongs_to :alert, optional: true
   
+  validates :name, :description, presence: true
 end

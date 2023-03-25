@@ -4,7 +4,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.includes(:alerts)
+    @tasks = Task.all
+    @alerts = Alert.includes(:tasks)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -14,6 +15,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @alerts = Alert.all
   end
 
   # GET /tasks/1/edit
@@ -23,6 +25,7 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
 
     respond_to do |format|
       if @task.save
@@ -66,6 +69,13 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :description, :user_id)
+      params.require(:task).permit(
+        :name,
+        :description,
+        alerts_attributes: [
+          :id,
+          :name
+        ]
+      )
     end
 end
