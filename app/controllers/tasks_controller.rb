@@ -71,11 +71,7 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(
         :name,
-        :description,
-        alerts_attributes: [
-          :id,
-          :name
-        ]
+        :description
       )
     end
 end
