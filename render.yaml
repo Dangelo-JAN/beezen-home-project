@@ -1,18 +1,18 @@
 databases:
-  - name: beezen-home-project
-    databaseName: beezen-home-project
-    user: beezen-home-project
+  - name: beenzen_home_project
+    databaseName: beenzen_home_project
+    user: beenzen_home_project
 
 services:
   - type: web
-    name: beezen-home-project
+    name: beenzen_home_project
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: beezen-home-project
+          name: beenzen_home_project
           property: connectionString
       - key: a5b7f3c978566766950b1d48a56f56ae
         sync: false
