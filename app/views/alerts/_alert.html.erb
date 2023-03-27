@@ -82,7 +82,7 @@
   <div class="mt-2 mb-10">
     <% if action_name != "show" %>
       <%= link_to "Show this alert", alert, class: "rounded-lg py-3 px-5 bg-orange-400 inline-block font-medium" %>
-      <% if current_user %>
+      <% if can? :update, alert %>
         <%= link_to 'Edit this alert', edit_alert_path(alert), class: "rounded-lg py-3 ml-2 px-5 bg-orange-400 inline-block font-medium" %>
       <% end %>
     <% end %>

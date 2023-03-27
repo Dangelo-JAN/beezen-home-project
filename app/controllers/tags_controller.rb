@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: %i[ show edit update destroy ]
+  # before_action :set_tag, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   # GET /tags or /tags.json
   def index
@@ -13,7 +14,7 @@ class TagsController < ApplicationController
 
   # GET /tags/new
   def new
-    @tag = Tag.new
+    # @tag = Tag.new
   end
 
   # GET /tags/1/edit
@@ -22,7 +23,7 @@ class TagsController < ApplicationController
 
   # POST /tags or /tags.json
   def create
-    @tag = Tag.new(tag_params)
+    # @tag = Tag.new(tag_params)
 
     respond_to do |format|
       if @tag.save
@@ -60,9 +61,9 @@ class TagsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
+    # def set_tag
+    #   @tag = Tag.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def tag_params

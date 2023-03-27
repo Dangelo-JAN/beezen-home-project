@@ -1,6 +1,7 @@
 class AlertsController < ApplicationController
-  before_action :set_alert, only: %i[ show edit update destroy ]
+  # before_action :set_alert, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   # GET /alerts or /alerts.json
   def index
@@ -13,7 +14,7 @@ class AlertsController < ApplicationController
 
   # GET /alerts/new
   def new
-    @alert = Alert.new
+    # @alert = Alert.new
     @tags = Tag.all
   end
 
@@ -23,7 +24,7 @@ class AlertsController < ApplicationController
 
   # POST /alerts or /alerts.json
   def create
-    @alert = Alert.new(alert_params)
+    # @alert = Alert.new(alert_params)
 
     respond_to do |format|
       if @alert.save
@@ -61,9 +62,9 @@ class AlertsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_alert
-      @alert = Alert.find(params[:id])
-    end
+    # def set_alert
+    #   @alert = Alert.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def alert_params

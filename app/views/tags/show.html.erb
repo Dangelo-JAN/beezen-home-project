@@ -6,8 +6,10 @@
 
     <%= render @tag %>
 
-    <% if current_user %>
+    <% if can? :update, tag %>
       <%= link_to 'Edit this tag', edit_tag_path(@tag), class: "mt-2 rounded-lg py-3 px-5 bg-orange-400 inline-block font-medium" %>
+    <% end %>
+    <% if can? :destroy, tag %>
       <div class="inline-block ml-2">
         <%= button_to 'Destroy this tag', tag_path(@tag), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-orange-400 font-medium" %>
       </div>
