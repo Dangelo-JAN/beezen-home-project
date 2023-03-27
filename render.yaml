@@ -7,8 +7,8 @@ databases:
 services:
   - type: web
     name: beenzen_home_project
-    env: ruby
     plan: free
+    env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
@@ -16,5 +16,5 @@ services:
         fromDatabase:
           name: beenzen_home_project
           property: connectionString
-      - key: a5b7f3c978566766950b1d48a56f56ae
+      - key: RAILS_MASTER_KEY
         sync: false
