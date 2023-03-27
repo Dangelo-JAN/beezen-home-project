@@ -14,5 +14,5 @@ services:
         fromDatabase:
           name: beezen-home-project
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: a5b7f3c978566766950b1d48a56f56ae
         sync: false
