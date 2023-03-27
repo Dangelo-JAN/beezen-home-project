@@ -84,3 +84,4 @@ production:
   database: beenzen_home_project_production
   username: beenzen_home_project
   password: <%= ENV["BEENZEN_HOME_PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
