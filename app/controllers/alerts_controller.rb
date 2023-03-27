@@ -14,6 +14,7 @@ class AlertsController < ApplicationController
   # GET /alerts/new
   def new
     @alert = Alert.new
+    @tags = Tag.all
   end
 
   # GET /alerts/1/edit
@@ -66,6 +67,6 @@ class AlertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def alert_params
-      params.require(:alert).permit(:type, :name, :tag, :description, :origin, :task_id)
+      params.require(:alert).permit(:type, :name, :description, :origin, tag_ids:[])
     end
 end

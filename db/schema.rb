@@ -14,15 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_210002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alert_tags", force: :cascade do |t|
-    t.bigint "alert_id", null: false
-    t.bigint "tag_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["alert_id"], name: "index_alert_tags_on_alert_id"
-    t.index ["tag_id"], name: "index_alert_tags_on_tag_id"
-  end
-
   create_table "alerts", force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -31,6 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_210002) do
     t.string "origin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "alerts_tags", id: false, force: :cascade do |t|
+    t.bigint "alert_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alert_id"], name: "index_alerts_tags_on_alert_id"
+    t.index ["tag_id"], name: "index_alerts_tags_on_tag_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_210002) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "alert_tags", "alerts"
-  add_foreign_key "alert_tags", "tags"
+  add_foreign_key "alerts_tags", "alerts"
+  add_foreign_key "alerts_tags", "tags"
   add_foreign_key "tasks", "alerts"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "roles"

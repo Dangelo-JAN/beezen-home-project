@@ -6,7 +6,7 @@ tasks = [['task 1', 'description 1'], ['task 2', 'description 2'], ['task 3', 'd
 
 alerts = [['portal_opened', 'Portal opened', '', 'A portal was opened', '123.89.00.2'], ['portal_closed', 'Portal closed', '', 'A portal was closed', '123.89.00.2'],]
 
-tags = ["verions2.3.9", "production"]
+tags = ["version 2.3.9", "production"]
 
 def create_roles(roles)
   puts 'Creating roles..'

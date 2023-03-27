@@ -75,8 +75,4 @@ class TasksController < ApplicationController
         :alert_id
       )
     end
-
-    def set_task
-      @task = Task.find(params[:id])
-    end
 end
