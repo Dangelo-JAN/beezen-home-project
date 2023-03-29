@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new(role_id: 2)
+    user ||= User.new(role_id: 3)
 
     if user.admin?
       can :manage, :all
@@ -38,12 +38,5 @@ class Ability
     elsif user.visitor?
       can :read, :all
     end
-    # Define abilities for the user here. For example:
-    #
-    #   return unless user.present?
-    #   can :read, :all
-    #   return unless user.admin?
-    #   can :manage, :all
-
   end
 end
