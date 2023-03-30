@@ -6,10 +6,10 @@
 
     <%= render @task %>
 
-    <% if can? :update, current_user %>
+    <% if can? :update, @task %>
       <%= link_to 'Edit this task', edit_task_path(@task), class: "mt-2 rounded-lg py-3 px-5 bg-orange-400 inline-block font-medium" %>
     <% end %>
-    <% if can? :destroy, current_user %>
+    <% if can? :destroy, @task %>
       <div class="inline-block ml-2">
         <%= button_to 'Destroy this task', task_path(@task), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-orange-400 font-medium" %>
       </div>

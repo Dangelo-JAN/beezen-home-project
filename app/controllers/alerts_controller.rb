@@ -25,6 +25,7 @@ class AlertsController < ApplicationController
   # POST /alerts or /alerts.json
   def create
     # @alert = Alert.new(alert_params)
+    @alert.user_id = current_user.id
 
     respond_to do |format|
       if @alert.save
@@ -68,6 +69,6 @@ class AlertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def alert_params
-      params.require(:alert).permit(:type, :name, :description, :origin, tag_ids:[])
+      params.require(:alert).permit(:type, :name, :description, :origin, :user_id, tag_ids:[])
     end
 end

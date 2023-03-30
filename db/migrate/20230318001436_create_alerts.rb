@@ -6,6 +6,7 @@ class CreateAlerts < ActiveRecord::Migration[7.0]
       t.string :tag
       t.string :description
       t.string :origin
+      t.references :user, null: true, index: true, foreign_key: true
 
       t.timestamps
     end
