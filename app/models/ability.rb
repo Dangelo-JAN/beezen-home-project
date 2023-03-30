@@ -11,11 +11,11 @@ class Ability
     elsif user.current?
       can :read, Task
       can :create, Task
-      can :update, Task do |t|
-        t.try(:user) == user
+      can :update, Task do |task|
+        task.try(:user) == user
       end
-      can :destroy, Task do |t|
-        t.try(:user) == user
+      can :destroy, Task do |task|
+        task.try(:user) == user
       end
 
       can :read, Alert

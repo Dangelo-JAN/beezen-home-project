@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   belongs_to :role, optional: true
   has_many :tasks, dependent: :destroy
+  has_many :alerts, through: :tasks
 
   before_save :assign_role
 
