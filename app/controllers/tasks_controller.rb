@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  # before_action :set_task, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
 
@@ -15,7 +14,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    # @task = Task.new
     @alerts = Alert.all
   end
 
@@ -25,7 +23,6 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    # @task = Task.new(task_params)
     @task.user_id = current_user.id
 
     respond_to do |format|
@@ -63,17 +60,12 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_task
-    #   @task = Task.find(params[:id])
-    # end
 
-    # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(
-        :name,
-        :description,
-        :alert_id
-      )
-    end
+  def task_params
+    params.require(:task).permit(
+      :name,
+      :description,
+      :alert_id
+    )
+  end
 end

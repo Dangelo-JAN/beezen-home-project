@@ -15,14 +15,14 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.role.name == 'admin'
+    role_id == 1
   end
 
   def current?
-    self.role.name == 'user'
+    role_id == 2
   end
 
   def visitor?
-    self.role.name == 'visitor'
+    role_id == 3
   end
 end
