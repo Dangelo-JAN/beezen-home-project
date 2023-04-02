@@ -5,4 +5,9 @@ class Alert < ApplicationRecord
   
   has_and_belongs_to_many :tags
 
+  validates :type, inclusion: {
+    in: ["portal_opened", "portal_closed"],
+    message: "Alert's type just can be: portal_opened or portal_closed"
+  }
+
 end

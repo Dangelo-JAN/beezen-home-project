@@ -2,6 +2,28 @@
 
 > Web application where you can manage your alerts: you have a list of alerts & tags associated with a task, so that you can see your tasks with alerts.
 
+## Live Demo
+
+For a live demo
+- On Render [click here](https://beenzen-home-project.onrender.com/).
+
+## Table of Contents
+
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 orderedList:0 -->
+
+- [Information](#information)
+	- [Built With](#built-with)
+	- [Getting Started](#getting-started)
+	- [Run project](#run-project)
+	- [Author](#author)
+	- [Contributing](#contributing)
+	- [Show your support](#show-your-support)
+	- [Contributing](#contributing)
+    - [Acknowledgments](#acknowledgments)
+    - [License](#license)
+
+<!-- /TOC -->
+
 ## Built With
 
 * [![Ruby][Ruby-Lang.org]][Ruby-url]
