@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
+gem 'cancancan', '~> 3.5'
 gem 'devise', '~> 4.9'
 gem 'devise-jwt', '~> 0.10.0'
 gem 'rack-cors', '~> 2.0', '>= 2.0.1'

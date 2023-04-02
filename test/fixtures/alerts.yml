@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  tag: MyString
+  description: MyString
+  origin: MyString
+  task: one
+
+two:
+  type: 
+  name: MyString
+  tag: MyString
+  description: MyString
+  origin: MyString
+  task: two
