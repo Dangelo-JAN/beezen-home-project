@@ -4,7 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.1"
 gem 'cancancan', '~> 3.5'
 gem 'devise', '~> 4.9'
-gem 'devise-jwt', '~> 0.10.0'
+gem 'omniauth', '~> 2.1', '>= 2.1.1'
+gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

@@ -2,7 +2,20 @@
   <div class="w-full max-w-md space-y-8">
     <div>
       <img class="mx-auto h-72 w-auto" src="https://media.glassdoor.com/sql/1542741/beezen-squarelogo-1513863872297.png" alt="Beezen logo">
-      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up to your account</h2>
+      <h2 class="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up to your account with</h2>
+      <div class="text-center text-4xl font-bold tracking-tight text-gray-900">
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= form_for "Login",
+              url: omniauth_authorize_path(resource_name, provider), 
+              method: :post,
+              data: {turbo: "false"} do |f| %>
+                <%= f.submit "Login", type: "image", src: url_for("/assets/btn_google_signin_light_normal_web.png") %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <p> or </p>
+      </div>
     </div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -36,6 +49,5 @@
         <%= f.submit "Sign up" %>
       </div>
     <% end %>
-
   </div>
 </div>
