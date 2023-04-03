@@ -18,9 +18,9 @@ For a live demo
 	- [Author](#author)
 	- [Contributing](#contributing)
 	- [Show your support](#show-your-support)
-	- [Contributing](#contributing)
+	- [Contributing](#-contributing)
     - [Acknowledgments](#acknowledgments)
-    - [License](#license)
+    - [License](#-license)
 
 <!-- /TOC -->
 
